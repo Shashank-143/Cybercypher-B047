@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Google Form</title>
+    <link rel="stylesheet" href="googleFormStyle.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Generate A Survey</h2>
+        <p>Test your idea's validity in the market before production!</p>
+        <p>Generate a google form that will give you insights into your product/idea's target demographic and potential demand</p>
+        
+        <form method="post" action="/">
+            <h2>Enter your product/idea here!</h2>
+            <input type="text" name="idea" id="idea" required>
+            <input type="submit" value="Generate Survey">
+        </form>
+
+        {% if form_link %}
+        <div class="generated-link">
+            <h3>Your Generated Survey</h3>
+            <a href="{{ form_link }}" target="_blank">{{ form_link }}</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
