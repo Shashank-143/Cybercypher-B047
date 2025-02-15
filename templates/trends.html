@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+    <title>Trending Topics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='trends.css') }}">
+=======
+    <title>Trending Topics | Discover What's Hot</title>
+    <link rel="stylesheet" href="trends.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+>>>>>>> 1746a85a950e8eb9ed5376d7c49a6a925380189f
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Discover What's Trending</h1>
+            <p class="subtitle">Let's check what people are interested in</p>
+        </header>
+
+        <main>
+            <form action="/search" method="POST" class="search-form">
+                <div class="search-wrapper">
+                    <input 
+                        type="text" 
+                        name="query" 
+                        placeholder="Enter search keyword..." 
+                        required
+                        autocomplete="off"
+                    >
+                    <button type="submit">
+                        Search
+                        <span class="button-hover"></span>
+                    </button>
+                </div>
+            </form>
+
+            {% if results %}
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Trending Topic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for index, item in enumerate(results, start=1) %}
+                        <tr>
+                            <td class="position">{{ index }}</td>
+                            <td class="topic">{{ item }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>Updated in real-time</p>
+        </footer>
+    </div>
+</body>
+</html>
