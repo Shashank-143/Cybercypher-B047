@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Topics</title>
+    <link rel="stylesheet" href="trends.css">
+</head>
+<body>
+
+    <h1>See What's Trending</h1>
+
+    <form action="/search" method="POST">
+        <input type="text" name="query" placeholder="Enter search keyword..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+    <table>
+        <thead>
+            <tr>
+                <th>Pos.</th>
+                <th>Trending Topic</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, item in enumerate(results, start=1) %}
+            <tr>
+                <td>{{ index }}</td>
+                <td>{{ item }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+</body>
+</html>
