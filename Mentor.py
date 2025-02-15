@@ -24,7 +24,7 @@ tools = {
         "name": "Idea Validation",
         "description": "Validate and analyze business ideas",
         "prompt": (
-            "As a startup advisor specializing in idea validation, analyze this business idea in detail:\n"
+            "As a startup advisor specializing in idea validation, analyze this business idea in short but detail:\n"
             "1. Market potential and size\n"
             "2. Competition analysis\n"
             "3. Feasibility assessment\n"
@@ -39,7 +39,7 @@ tools = {
         "name": "Market Research",
         "description": "Detailed market analysis and insights",
         "prompt": (
-            "As a market research expert, provide comprehensive analysis covering:\n"
+            "As a market research expert, provide short but comprehensive analysis covering:\n"
             "1. Market size and growth potential\n"
             "2. Target customer segments and demographics\n"
             "3. Competitive landscape and market leaders\n"
@@ -51,7 +51,7 @@ tools = {
     },
     "business_plan": {
         "name": "Business Plan Development",
-        "description": "Create detailed business plans",
+        "description": "Create short but detailed business plans",
         "prompt": (
             "As a business strategist, develop a comprehensive plan addressing:\n"
             "1. Business model and value chain\n"
@@ -67,7 +67,7 @@ tools = {
         "name": "Pitch Deck Creation",
         "description": "Guide for creating investor presentations",
         "prompt": (
-            "As a pitch consultant, provide detailed guidance for creating compelling investor materials:\n"
+            "As a pitch consultant, provide short but detailed guidance for creating compelling investor materials:\n"
             "1. Problem statement and solution\n"
             "2. Market opportunity and timing\n"
             "3. Business model and revenue strategy\n"
@@ -84,7 +84,7 @@ def format_prompt(user_input, mode):
     tool = tools[mode]
     context_lines = [
         f"System: {tool['prompt']}",
-        "Provide detailed, actionable advice based on current startup trends and best practices.",
+        "Provide a brief but actionable response. Keep it concise and focus on key insights.",
         ""
     ]
 
@@ -117,7 +117,7 @@ def generate_response(user_input, mode):
             json={
                 "inputs": prompt,
                 "parameters": {
-                    "max_new_tokens": 1000,
+                    "max_new_tokens": 300,
                     "temperature": 0.7,
                     "top_p": 0.95,
                     "do_sample": True

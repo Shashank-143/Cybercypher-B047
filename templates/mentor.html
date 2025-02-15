@@ -313,7 +313,7 @@
     <div class="container">
         <header>
             <h1>Mentor</h1>
-            <p>Your AI-powered business advisor for your needs</p>
+            <p>Your AI-powered business advisor</p>
         </header>
 
         <form action="/chat" method="post">
@@ -335,7 +335,7 @@
                 {% if messages %}
                     {% for message in messages %}
                         <div class="message {% if message.role == 'user' %}user-message{% else %}assistant-message{% endif %}">
-                            {{ message.content }}
+                            {{ message.content | replace("\n", "<br>") | safe }}
                         </div>
                     {% endfor %}
                 {% endif %}
@@ -345,6 +345,10 @@
                 <input type="text" name="message" placeholder="Type your message here..." required>
                 <input type="submit" value="Send">
             </div>
+        </form>
+
+        <form action="/clear_chat" method="post">
+            <button type="submit" class="clear-chat">Clear Chat</button>
         </form>
     </div>
 </body>
