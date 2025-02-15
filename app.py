@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request, render_template, redirect, url_for
-from trends import get_searches, check_searches, string_to_list
+from trends import get_searches
+from googleForm import generate_questions, create_google_form
 
 app = Flask(__name__)
 
@@ -18,9 +19,16 @@ def trends():
             print("DEBUG - Search results:", top_searches)
     return render_template("trends.html", results=top_searches)
 
-@app.route("/form", methods = ["GET", "POST"])
+@app.route("/form", methods=["GET", "POST"])
 def form():
-    return render_template("googleForm.html")
+    link = None
+    if request.method == "POST":
+        idea = request.form.get("idea")
+        questions = generate_questions(idea)
+        link = create_google_form(idea=idea, questions=questions)
+        print(questions, link)
+            
+    return render_template("googleForm.html", form_link=link)
 
 @app.route("/mentor", methods = ["GET", "POST"])
 def mentor():

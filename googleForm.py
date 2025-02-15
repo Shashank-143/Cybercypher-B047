@@ -3,14 +3,20 @@ from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 from huggingface_hub import InferenceClient
 import os
+from dotenv import load_dotenv
 
-api_key = os.getenv("j_form_apikey")
+load_dotenv()
+apikey = os.getenv("j_form_apikey")
 repo_id = "microsoft/Phi-3.5-mini-instruct"
-
 client = InferenceClient(
-    api_key=api_key,
-    model=repo_id,   
+    api_key=apikey,
+    model=repo_id  
 )
+
+SCOPES = ["https://www.googleapis.com/auth/forms.body"]
+SERVICE_ACCOUNT_FILE = "credentials.json"
+creds = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+service = build("forms", "v1", credentials=creds)
 
 def generate_questions(idea):
     
@@ -116,4 +122,3 @@ def create_google_form(idea, questions):
     # Step 4: Return the form's edit link
     form_url = f"https://docs.google.com/forms/d/{form_id}/edit"
     return form_url
-

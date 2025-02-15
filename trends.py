@@ -5,12 +5,13 @@ from huggingface_hub import InferenceClient
 from dotenv import load_dotenv
 import requests
 
+load_dotenv()
 apikey = os.getenv("d_filter_apikey")
 repo_id = "mistralai/Mistral-7B-Instruct-v0.3"
 client = InferenceClient(api_key=apikey)
 
 def get_searches(query):
-    load_dotenv()
+    
     API_KEY = os.getenv("d_search_apikey")
     query = query
 
@@ -61,8 +62,4 @@ def string_to_list(string_input):
     except (ValueError, SyntaxError):
         print("Invalid input format")
         return []
-
-a = get_searches("F1")
-print(a)
-print(type(a))
 
