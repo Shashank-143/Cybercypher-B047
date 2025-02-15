@@ -1,0 +1,18 @@
+# Web Framework
+flask==3.0.2
+
+# Environment Variables
+python-dotenv==1.0.1
+
+# API Clients
+requests==2.31.0
+huggingface-hub==0.20.3
+google-auth-oauthlib==1.2.0
+google-auth==2.27.0
+google-api-python-client==2.118.0
+
+# Other Dependencies
+ast==0.0.2
+datetime==5.4
+json==2.0.9
+typing==3.7.4.3
