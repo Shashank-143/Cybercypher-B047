@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request, render_template, redirect, url_for
+import trends
 
 app = Flask(__name__)
 
@@ -8,6 +9,7 @@ def home():
 
 @app.route("/trends", methods = ["GET", "POST"])
 def trends():
+
     return render_template("trends.html")
 
 @app.route("/form", methods = ["GET", "POST"])
@@ -16,7 +18,7 @@ def form():
 
 @app.route("/mentor", methods = ["GET", "POST"])
 def mentor():
-    return render_template("")
+    return render_template("mentor.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
