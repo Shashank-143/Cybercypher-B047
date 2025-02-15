@@ -11,8 +11,7 @@
 5. [Installation & Setup](#installation--setup)  
 6. [Usage](#usage)  
 7. [AI Mentor Functionality](#ai-mentor-functionality)  
-8. [Project Status](#project-status)  
-9. [Roadmap](#roadmap)  
+9. [Future Roadmap](#roadmap)  
   
 ---
 
@@ -134,11 +133,6 @@ The website should now be accessible at http://127.0.0.1:5000.
 4. Pitch Deck
 
     - Suggests slide content and structure for an investor-ready pitch deck, including problem statements, solutions, and financial projections.
-
-
-## Project Status
-Production: Starthub is currently live and in production. We are continuously refining the AI models and adding new features based on user feedback.
-
 
 ## Future Roadmap
 
