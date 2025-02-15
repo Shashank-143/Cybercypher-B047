@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #bb86fc;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #03dac6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background-color: #2d2d2d;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #cf6679;
+        }
+
+        .card p {
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #03dac6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Startup Assistant Hub</h1>
+            <p class="subtitle">Your comprehensive toolkit for startup success</p>
+        </header>
+
+        <div class="grid">
+            <a href="/trends" class="card">
+                <div class="card-icon">📈</div>
+                <h2>Trends</h2>
+                <p>Explore the latest startup and technology, and product trends to stay ahead of the curve.</p>
+            </a>
+
+            <a href="/form" class="card">
+                <div class="card-icon">📝</div>
+                <h2>Google Form</h2>
+                <p>Make a Google Form as per your requirements to get customer survery of your idea.</p>
+            </a>
+
+            <a href="/mentor" class="card">
+                <div class="card-icon">🤖</div>
+                <h2>AI Mentor</h2>
+                <p>Get instant advice and feedback from our AI-powered startup mentor.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
