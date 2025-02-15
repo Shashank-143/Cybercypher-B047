@@ -2,8 +2,15 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 from huggingface_hub import InferenceClient
-import json
 import os
+
+api_key = os.getenv("j_form_apikey")
+repo_id = "microsoft/Phi-3.5-mini-instruct"
+
+client = InferenceClient(
+    api_key=api_key,
+    model=repo_id,   
+)
 
 def generate_questions(idea):
     

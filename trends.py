@@ -5,15 +5,13 @@ from huggingface_hub import InferenceClient
 from dotenv import load_dotenv
 import requests
 
-app = Flask(__name__)
-
-apikey = os.getenv("apikey")
+apikey = os.getenv("d_filter_apikey")
 repo_id = "mistralai/Mistral-7B-Instruct-v0.3"
-
 client = InferenceClient(api_key=apikey)
+
 def get_searches(query):
     load_dotenv()
-    API_KEY = os.getenv("API_KEY")
+    API_KEY = os.getenv("d_search_apikey")
     query = query
 
     params_related = {"q": query, "api_key": API_KEY, "engine": "google","nums":200}
@@ -41,6 +39,7 @@ def check_searches(context, query):
     If the context is unrelated to {query}, do not return anything. 
     Otherwise, return the relevant results as a list separated by commas. 
     Do not include movies or songs or books. Make sure the output is a unique list.
+    Do not write context word before or after just provide answers.
     """
 
     messages = [
@@ -53,7 +52,8 @@ def check_searches(context, query):
         messages=messages
     )
 
-    return string_to_list(response['choices'][0]['message']['content'])
+    my_response = response['choices'][0]['message']['content']
+    return my_response.split(',')
 
 def string_to_list(string_input):
     try:
@@ -62,11 +62,7 @@ def string_to_list(string_input):
         print("Invalid input format")
         return []
 
-@app.route("/search")
-def search():
-    query = request.args.get("query", "")
-    context = get_searches(query)
-    return context
+a = get_searches("F1")
+print(a)
+print(type(a))
 
-if __name__ == "__main__":
-    app.run(debug=True)

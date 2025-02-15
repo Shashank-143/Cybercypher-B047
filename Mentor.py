@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-api_key = os.getenv("MODEL_API_KEY")
+api_key = os.getenv("s_mentor_apikey")
 if not api_key:
-    raise ValueError("MODEL_API_KEY environment variable is not set.")
+    raise ValueError("s_mentor_apikey environment variable is not set.")
 
 headers = {
     "Authorization": f"Bearer {api_key}",

@@ -16,7 +16,7 @@
         </header>
 
         <main>
-            <form action="/search" method="POST" class="search-form">
+            <form action="/trends" method="POST" class="search-form">
                 <div class="search-wrapper">
                     <input 
                         type="text" 
@@ -24,6 +24,7 @@
                         placeholder="Enter search keyword..." 
                         required
                         autocomplete="off"
+                        id="keyword"
                     >
                     <button type="submit">
                         Search
@@ -42,9 +43,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for index, item in enumerate(results, start=1) %}
+                        {% for item in results %}
                         <tr>
-                            <td class="position">{{ index }}</td>
+                            <td class="position">{{ loop.index }}</td>
                             <td class="topic">{{ item }}</td>
                         </tr>
                         {% endfor %}
