@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, render_template, redirect, url_for, session
 from trends import get_searches
 from googleForm import generate_questions, create_google_form
-from Mentor import generate_response
+from mentor import generate_response
 from dotenv import load_dotenv
 import os
 
